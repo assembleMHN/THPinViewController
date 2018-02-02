@@ -30,7 +30,7 @@
 
 - (void)setFilled:(BOOL)filled
 {
-    self.backgroundColor = (filled) ? self.tintColor : [UIColor clearColor];
+    self.backgroundColor = (filled) ? [UIColor whiteColor] : [UIColor clearColor];
 }
 
 - (CGSize)intrinsicContentSize
@@ -44,3 +44,4 @@
 }
 
 @end
+

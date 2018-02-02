@@ -88,7 +88,7 @@
                                                                        toItem:contentView attribute:NSLayoutAttributeTop
                                                                    multiplier:1.0f constant:0.0f]];
         }
-
+        
         // set contentView height
         [self addConstraint:[NSLayoutConstraint constraintWithItem:contentView attribute:NSLayoutAttributeHeight
                                                          relatedBy:NSLayoutRelationEqual toItem:nil attribute:0
@@ -121,7 +121,7 @@
 - (void)tintColorDidChange
 {
     self.layer.borderColor = [[UIColor whiteColor] CGColor];
-    self.numberLabel.textColor = self.tintColor;
+    self.numberLabel.textColor = [UIColor whiteColor];
     self.lettersLabel.textColor = self.tintColor;
 }
 
@@ -129,10 +129,10 @@
 {
     [super touchesBegan:touches withEvent:event];
     self.backgroundColorBackup = self.backgroundColor;
-    self.backgroundColor = self.tintColor;
+    self.backgroundColor = [UIColor whiteColor];
     UIColor *textColor = ([self.backgroundColorBackup isEqual:[UIColor clearColor]] ?
                           [self.class averageContentColor] : self.backgroundColorBackup);
-    self.numberLabel.textColor = textColor;
+    self.numberLabel.textColor = [UIColor whiteColor];
     self.lettersLabel.textColor = textColor;
 }
 
@@ -154,7 +154,7 @@
                      animations:^{
                          self.backgroundColor = self.backgroundColorBackup;
                      } completion:^(BOOL finished) {
-                         self.numberLabel.textColor = self.tintColor;
+                         self.numberLabel.textColor = [UIColor whiteColor];
                          self.lettersLabel.textColor = self.tintColor;
                      }];
 }
@@ -185,12 +185,13 @@
         [contentView drawViewHierarchyInRect:(CGRect){ .size = size } afterScreenUpdates:NO];
         uint8_t *data = CGBitmapContextGetData(ctx);
         averageContentColor = [UIColor colorWithRed:data[2] / 255.0f
-                                               green:data[1] / 255.0f
-                                                blue:data[0] / 255.0f
-                                               alpha:1.0f];
+                                              green:data[1] / 255.0f
+                                               blue:data[0] / 255.0f
+                                              alpha:1.0f];
         UIGraphicsEndImageContext();
     });
     return averageContentColor;
 }
 
 @end
+

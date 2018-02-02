@@ -26,7 +26,7 @@
 - (nonnull instancetype)initWithPinLength:(NSUInteger)pinLength
 {
     NSParameterAssert(pinLength > 0);
-
+    
     self = [super initWithFrame:CGRectZero];
     if (self)
     {
@@ -135,3 +135,4 @@ static const CGFloat THInitialShakeAmplitude = 40.0f;
 }
 
 @end
+
