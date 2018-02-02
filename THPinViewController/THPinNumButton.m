@@ -120,7 +120,7 @@
 
 - (void)tintColorDidChange
 {
-    self.layer.borderColor = self.tintColor.CGColor;
+    self.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.numberLabel.textColor = self.tintColor;
     self.lettersLabel.textColor = self.tintColor;
 }

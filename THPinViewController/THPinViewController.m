@@ -48,13 +48,7 @@
 {
     [super viewDidLoad];
     
-    if (self.translucentBackground) {
-        self.view.backgroundColor = [UIColor clearColor];
-        [self addBlurView];
-    } else {
-        self.view.backgroundColor = self.backgroundColor;
-        [self addBlurView];
-    }
+    [self addBlurView];
     
     self.pinView = [[THPinView alloc] initWithDelegate:self];
     
@@ -87,35 +81,6 @@
 }
 
 #pragma mark - Properties
-
-- (void)setBackgroundColor:(UIColor *)backgroundColor
-{
-    if ([self.backgroundColor isEqual:backgroundColor]) {
-        return;
-    }
-    _backgroundColor = backgroundColor;
-    if (! self.translucentBackground) {
-        self.view.backgroundColor = self.backgroundColor;
-        self.pinView.backgroundColor = self.backgroundColor;
-    }
-}
-
-- (void)setTranslucentBackground:(BOOL)translucentBackground
-{
-    if (self.translucentBackground == translucentBackground) {
-        return;
-    }
-    _translucentBackground = translucentBackground;
-    if (self.translucentBackground) {
-        self.view.backgroundColor = [UIColor clearColor];
-        self.pinView.backgroundColor = [UIColor clearColor];
-        [self addBlurView];
-    } else {
-        self.view.backgroundColor = self.backgroundColor;
-        self.pinView.backgroundColor = self.backgroundColor;
-        [self removeBlurView];
-    }
-}
 
 - (void)setPromptTitle:(NSString *)promptTitle
 {
@@ -162,30 +127,7 @@
     UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     blurEffectView.frame = self.view.bounds;
     blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
     [self.view addSubview:blurEffectView];
-}
-
-- (void)removeBlurView
-{
-    [self.blurView removeFromSuperview];
-    self.blurView = nil;
-    [self.view removeConstraints:self.blurViewContraints];
-    self.blurViewContraints = nil;
-}
-
-- (UIImage*)blurredContentImage
-{
-    UIView *contentView = [[UIApplication sharedApplication].keyWindow viewWithTag:THPinViewControllerContentViewTag];
-    if (! contentView) {
-        return nil;
-    }
-    UIGraphicsBeginImageContext(self.view.bounds.size);
-    [contentView drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:NO];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return [image applyBlurWithRadius:20.0f tintColor:[UIColor colorWithWhite:1.0f alpha:0.25f]
-                saturationDeltaFactor:1.8f maskImage:nil];
 }
 
 #pragma mark - THPinViewDelegate
