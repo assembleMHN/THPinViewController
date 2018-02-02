@@ -28,7 +28,7 @@
         _backgroundColor = [UIColor whiteColor];
         _translucentBackground = NO;
         NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"THPinViewController"
-                                                                                    ofType:@"bundle"]];
+                                                                                                     ofType:@"bundle"]];
         _promptTitle = NSLocalizedStringFromTableInBundle(@"prompt_title", @"THPinViewController", bundle, nil);
     }
     return self;
@@ -53,10 +53,11 @@
         [self addBlurView];
     } else {
         self.view.backgroundColor = self.backgroundColor;
+        [self addBlurView];
     }
     
     self.pinView = [[THPinView alloc] initWithDelegate:self];
-    self.pinView.backgroundColor = self.view.backgroundColor;
+    
     self.pinView.promptTitle = self.promptTitle;
     self.pinView.promptColor = self.promptColor;
     self.pinView.hideLetters = self.hideLetters;
@@ -156,17 +157,13 @@
 
 - (void)addBlurView
 {
-    self.blurView = [[UIImageView alloc] initWithImage:[self blurredContentImage]];
-    self.blurView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view insertSubview:self.blurView belowSubview:self.pinView];
-    NSDictionary *views = @{ @"blurView" : self.blurView };
-    NSMutableArray *constraints =
-    [NSMutableArray arrayWithArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[blurView]|"
-                                                                           options:0 metrics:nil views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[blurView]|"
-                                                                             options:0 metrics:nil views:views]];
-    self.blurViewContraints = constraints;
-    [self.view addConstraints:self.blurViewContraints];
+    self.view.backgroundColor = [UIColor clearColor];
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurEffectView.frame = self.view.bounds;
+    blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    [self.view addSubview:blurEffectView];
 }
 
 - (void)removeBlurView
@@ -248,3 +245,4 @@
 }
 
 @end
+
