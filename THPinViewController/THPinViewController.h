@@ -38,7 +38,6 @@ static const NSInteger THPinViewControllerContentViewTag = 14742;
 @property (nonatomic, weak, nullable) id<THPinViewControllerDelegate> delegate;
 @property (nonatomic, strong, nullable) UIColor *backgroundColor; // is only used if translucentBackground == NO
 @property (nonatomic, assign) BOOL translucentBackground;
-@property (nonatomic, copy, nullable) NSString *promptTitle;
 @property (nonatomic, strong, nullable) UIColor *promptColor;
 @property (nonatomic, assign) BOOL hideLetters; // hides the letters on the number buttons
 @property (nonatomic, assign) BOOL disableCancel; // hides the cancel button

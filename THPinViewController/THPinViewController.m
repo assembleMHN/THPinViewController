@@ -16,7 +16,6 @@
 @property (nonatomic, strong) THPinView *pinView;
 @property (nonatomic, strong) UIView *blurView;
 @property (nonatomic, strong) NSArray *blurViewContraints;
-
 @end
 
 @implementation THPinViewController
@@ -28,8 +27,6 @@
         _delegate = delegate;
         _backgroundColor = [UIColor whiteColor];
         _translucentBackground = NO;
-        NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"THPinViewController" ofType:@"bundle"]];
-        _promptTitle = NSLocalizedStringFromTableInBundle(@"prompt_title", @"THPinViewController", bundle, nil);
     }
     return self;
 }
@@ -52,7 +49,7 @@
     
     self.pinView = [[THPinView alloc] initWithDelegate:self];
     
-    self.pinView.promptTitle = self.promptTitle;
+    self.pinView.promptTitle = [[THLocalStringManager sharedInstance] promptTitle];
     self.pinView.promptColor = self.promptColor;
     self.pinView.hideLetters = self.hideLetters;
     self.pinView.disableCancel = self.disableCancel;
@@ -84,12 +81,11 @@
 
 - (void)setPromptTitle:(NSString *)promptTitle
 {
-    if ([self.promptTitle isEqualToString:promptTitle]) {
+    if ([[[THLocalStringManager sharedInstance]promptTitle] isEqualToString:promptTitle]) {
         return;
     }
-    _promptTitle = [promptTitle copy];
-    self.pinView.promptTitle = self.promptTitle;
-    [[THLocalStringManager sharedInstance] setPromptTitle:promptTitle];
+    [[THLocalStringManager sharedInstance] setPromptTitle:[promptTitle copy]];
+    self.pinView.promptTitle = [[THLocalStringManager sharedInstance] promptTitle];
 }
 
 - (void)setPromptColor:(UIColor *)promptColor
