@@ -11,6 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface THLocalStringManager : NSObject
+@property (nonatomic, copy, nullable) NSString *promptTitle;
+@property (nonatomic, copy, nullable) NSString *titleCancel;
+@property (nonatomic, copy, nullable) NSString *titleDelete;
+
++ (id)sharedInstance;
 
 @end
 

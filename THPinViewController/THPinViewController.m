@@ -9,7 +9,7 @@
 #import "THPinViewController.h"
 #import "THPinView.h"
 #import "UIImage+ImageEffects.h"
-#import "THPinViewControllerExample-Swift.h"
+#import "THLocalStringManager.h"
 
 @interface THPinViewController () <THPinViewDelegate>
 
@@ -89,7 +89,7 @@
     }
     _promptTitle = [promptTitle copy];
     self.pinView.promptTitle = self.promptTitle;
-    [THLocalizeManager shared].titlePrompt = promptTitle;
+    [[THLocalStringManager sharedInstance] setPromptTitle:promptTitle];
 }
 
 - (void)setPromptColor:(UIColor *)promptColor

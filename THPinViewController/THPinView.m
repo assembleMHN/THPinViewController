@@ -10,7 +10,7 @@
 #import "THPinInputCirclesView.h"
 #import "THPinNumPadView.h"
 #import "THPinNumButton.h"
-#import "THPinViewControllerExample-Swift.h"
+#import "THLocalStringManager.h"
 
 @interface THPinView () <THPinNumPadViewDelegate>
 
@@ -203,12 +203,12 @@
     if (self.input.length == 0) {
         self.bottomButton.hidden = self.disableCancel;
         
-        [self.bottomButton setTitle:[[THLocalizeManager shared] titleCancel] forState:UIControlStateNormal];
+        [self.bottomButton setTitle:[[THLocalStringManager sharedInstance] titleCancel] forState:UIControlStateNormal];
         [self.bottomButton removeTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         self.bottomButton.hidden = NO;
-        [self.bottomButton setTitle:[[THLocalizeManager shared] titleDelete] forState:UIControlStateNormal];
+        [self.bottomButton setTitle:[[THLocalStringManager sharedInstance] titleDelete] forState:UIControlStateNormal];
         [self.bottomButton removeTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomButton addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
     }

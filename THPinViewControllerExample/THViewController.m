@@ -8,7 +8,7 @@
 
 #import "THViewController.h"
 #import "THPinViewController.h"
-#import "THPinViewControllerExample-Swift.h"
+#import "THLocalStringManager.h"
 
 @interface THViewController () <THPinViewControllerDelegate>
 
@@ -39,7 +39,7 @@ static const NSUInteger THNumberOfPinEntries = 6;
 
     self.loginLogoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.loginLogoutButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.loginLogoutButton setTitle:[[THLocalizeManager shared] titlePrompt] forState:UIControlStateNormal];
+    [self.loginLogoutButton setTitle:[[THLocalStringManager sharedInstance] promptTitle] forState:UIControlStateNormal];
     self.loginLogoutButton.tintColor = [UIColor whiteColor];
     [self.view addSubview:self.loginLogoutButton];
     
@@ -123,7 +123,7 @@ static const NSUInteger THNumberOfPinEntries = 6;
 - (void)logout:(id)sender
 {
     self.locked = YES;
-    [self.loginLogoutButton setTitle:[[THLocalizeManager shared] titlePrompt] forState:UIControlStateNormal];
+    [self.loginLogoutButton setTitle:[[THLocalStringManager sharedInstance] promptTitle] forState:UIControlStateNormal];
 }
 
 #pragma mark - THPinViewControllerDelegate

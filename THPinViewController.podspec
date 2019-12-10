@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MHNPinViewController"
-  s.version      = "2.0.1"
+  s.version      = "2.0.2"
   s.summary      = "iOS 7 Style PIN Screen for iPhone and iPad"
   s.description  = <<-DESC
 				   * Has iPhone portrait and iPad portrait and landscape layouts

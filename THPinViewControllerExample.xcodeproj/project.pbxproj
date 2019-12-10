@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B5D0591239FC18F00993E63 /* THLocalizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D0590239FC18E00993E63 /* THLocalizeManager.swift */; };
+		0B5D0594239FCA6600993E63 /* THLocalStringManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D0593239FCA6600993E63 /* THLocalStringManager.m */; };
 		E2075FE01A160CCB0018078F /* THPinViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2075FDF1A160CCB0018078F /* THPinViewController.bundle */; };
 		E222D1FD1902F00900DD1762 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E222D1FB1902F00900DD1762 /* Main.storyboard */; };
 		E25C5FBF192C993F0073E612 /* confidential@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E25C5FBE192C993F0073E612 /* confidential@2x.png */; };
@@ -45,7 +45,8 @@
 
 /* Begin PBXFileReference section */
 		0B5D058F239FC18E00993E63 /* THPinViewControllerExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "THPinViewControllerExample-Bridging-Header.h"; sourceTree = "<group>"; };
-		0B5D0590239FC18E00993E63 /* THLocalizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THLocalizeManager.swift; sourceTree = "<group>"; };
+		0B5D0592239FCA6600993E63 /* THLocalStringManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THLocalStringManager.h; sourceTree = "<group>"; };
+		0B5D0593239FCA6600993E63 /* THLocalStringManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = THLocalStringManager.m; sourceTree = "<group>"; };
 		E2075FDF1A160CCB0018078F /* THPinViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = THPinViewController.bundle; sourceTree = "<group>"; };
 		E222D1FC1902F00900DD1762 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E25C5FBE192C993F0073E612 /* confidential@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "confidential@2x.png"; sourceTree = "<group>"; };
@@ -185,7 +186,8 @@
 		E26048D619027DBC006ACBC7 /* THPinViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0B5D0590239FC18E00993E63 /* THLocalizeManager.swift */,
+				0B5D0592239FCA6600993E63 /* THLocalStringManager.h */,
+				0B5D0593239FCA6600993E63 /* THLocalStringManager.m */,
 				E2742FC519043A27003EF85C /* THPinInputCirclesView.h */,
 				E2742FC619043A27003EF85C /* THPinInputCirclesView.m */,
 				E26048D919027DBC006ACBC7 /* THPinInputCircleView.h */,
@@ -316,10 +318,10 @@
 			files = (
 				E26048B819027D01006ACBC7 /* THViewController.m in Sources */,
 				E2742FC419043598003EF85C /* THPinNumPadView.m in Sources */,
-				0B5D0591239FC18F00993E63 /* THLocalizeManager.swift in Sources */,
 				E26048B219027D01006ACBC7 /* THAppDelegate.m in Sources */,
 				E2742FC719043A27003EF85C /* THPinInputCirclesView.m in Sources */,
 				E26048DE19027DBC006ACBC7 /* THPinInputCircleView.m in Sources */,
+				0B5D0594239FCA6600993E63 /* THLocalStringManager.m in Sources */,
 				E26048AE19027D01006ACBC7 /* main.m in Sources */,
 				E25C5FC5192CBF010073E612 /* UIImage+ImageEffects.m in Sources */,
 				E26048DF19027DBC006ACBC7 /* THPinViewController.m in Sources */,
@@ -541,7 +543,6 @@
 		E26048D419027D01006ACBC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/THPinViewControllerExample.app/THPinViewControllerExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -565,7 +566,6 @@
 		E26048D519027D01006ACBC7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/THPinViewControllerExample.app/THPinViewControllerExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
