@@ -9,6 +9,7 @@
 #import "THPinViewController.h"
 #import "THPinView.h"
 #import "UIImage+ImageEffects.h"
+#import "THPinViewControllerExample-Swift.h"
 
 @interface THPinViewController () <THPinViewDelegate>
 
@@ -27,8 +28,7 @@
         _delegate = delegate;
         _backgroundColor = [UIColor whiteColor];
         _translucentBackground = NO;
-        NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"THPinViewController"
-                                                                                                     ofType:@"bundle"]];
+        NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"THPinViewController" ofType:@"bundle"]];
         _promptTitle = NSLocalizedStringFromTableInBundle(@"prompt_title", @"THPinViewController", bundle, nil);
     }
     return self;
@@ -89,6 +89,7 @@
     }
     _promptTitle = [promptTitle copy];
     self.pinView.promptTitle = self.promptTitle;
+    [THLocalizeManager shared].titlePrompt = promptTitle;
 }
 
 - (void)setPromptColor:(UIColor *)promptColor

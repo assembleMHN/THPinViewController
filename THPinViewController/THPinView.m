@@ -10,6 +10,7 @@
 #import "THPinInputCirclesView.h"
 #import "THPinNumPadView.h"
 #import "THPinNumButton.h"
+#import "THPinViewControllerExample-Swift.h"
 
 @interface THPinView () <THPinNumPadViewDelegate>
 
@@ -198,22 +199,16 @@
 
 #pragma mark - Public
 
-- (void)updateBottomButton
-{
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"THPinViewController"
-                                                                                                 ofType:@"bundle"]];
+- (void)updateBottomButton {
     if (self.input.length == 0) {
         self.bottomButton.hidden = self.disableCancel;
-        [self.bottomButton setTitle:NSLocalizedStringFromTableInBundle(@"cancel_button_title", @"THPinViewController",
-                                                                       bundle, nil)
-                           forState:UIControlStateNormal];
+        
+        [self.bottomButton setTitle:[[THLocalizeManager shared] titleCancel] forState:UIControlStateNormal];
         [self.bottomButton removeTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         self.bottomButton.hidden = NO;
-        [self.bottomButton setTitle:NSLocalizedStringFromTableInBundle(@"delete_button_title", @"THPinViewController",
-                                                                       bundle, nil)
-                           forState:UIControlStateNormal];
+        [self.bottomButton setTitle:[[THLocalizeManager shared] titleDelete] forState:UIControlStateNormal];
         [self.bottomButton removeTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
         [self.bottomButton addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
     }

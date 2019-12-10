@@ -8,6 +8,7 @@
 
 #import "THViewController.h"
 #import "THPinViewController.h"
+#import "THPinViewControllerExample-Swift.h"
 
 @interface THViewController () <THPinViewControllerDelegate>
 
@@ -38,7 +39,7 @@ static const NSUInteger THNumberOfPinEntries = 6;
 
     self.loginLogoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.loginLogoutButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.loginLogoutButton setTitle:NSLocalizedString(@"Enter PIN", @"") forState:UIControlStateNormal];
+    [self.loginLogoutButton setTitle:[[THLocalizeManager shared] titlePrompt] forState:UIControlStateNormal];
     self.loginLogoutButton.tintColor = [UIColor whiteColor];
     [self.view addSubview:self.loginLogoutButton];
     
@@ -97,7 +98,6 @@ static const NSUInteger THNumberOfPinEntries = 6;
 - (void)showPinViewAnimated:(BOOL)animated
 {
     THPinViewController *pinViewController = [[THPinViewController alloc] initWithDelegate:self];
-    pinViewController.promptTitle = @"Enter PIN";
     UIColor *darkBlueColor = [UIColor colorWithRed:0.012f green:0.071f blue:0.365f alpha:1.0f];
     pinViewController.promptColor = darkBlueColor;
     pinViewController.view.tintColor = darkBlueColor;
@@ -123,7 +123,7 @@ static const NSUInteger THNumberOfPinEntries = 6;
 - (void)logout:(id)sender
 {
     self.locked = YES;
-    [self.loginLogoutButton setTitle:NSLocalizedString(@"Enter PIN", @"") forState:UIControlStateNormal];
+    [self.loginLogoutButton setTitle:[[THLocalizeManager shared] titlePrompt] forState:UIControlStateNormal];
 }
 
 #pragma mark - THPinViewControllerDelegate
@@ -155,11 +155,10 @@ static const NSUInteger THNumberOfPinEntries = 6;
     }
     
     UIAlertView *alert =
-    [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Incorrect PIN", @"")
+    [[UIAlertView alloc] initWithTitle:@""
                                message:(self.remainingPinEntries == 1 ?
-                                        @"You can try again once." :
-                                        [NSString stringWithFormat:@"You can try again %lu times.",
-                                         (unsigned long)self.remainingPinEntries])
+                                        @"" :
+                                        @"")
                               delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 
@@ -168,13 +167,13 @@ static const NSUInteger THNumberOfPinEntries = 6;
 - (void)pinViewControllerWillDismissAfterPinEntryWasSuccessful:(THPinViewController *)pinViewController
 {
     self.locked = NO;
-    [self.loginLogoutButton setTitle:NSLocalizedString(@"Logout", @"") forState:UIControlStateNormal];
+    [self.loginLogoutButton setTitle:@"" forState:UIControlStateNormal];
 }
 
 - (void)pinViewControllerWillDismissAfterPinEntryWasUnsuccessful:(THPinViewController *)pinViewController
 {
     self.locked = YES;
-    [self.loginLogoutButton setTitle:NSLocalizedString(@"Access Denied / Enter PIN", @"") forState:UIControlStateNormal];
+    [self.loginLogoutButton setTitle:@"" forState:UIControlStateNormal];
 }
 
 - (void)pinViewControllerWillDismissAfterPinEntryWasCancelled:(THPinViewController *)pinViewController

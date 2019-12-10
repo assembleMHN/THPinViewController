@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B5D0591239FC18F00993E63 /* THLocalizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D0590239FC18E00993E63 /* THLocalizeManager.swift */; };
 		E2075FE01A160CCB0018078F /* THPinViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2075FDF1A160CCB0018078F /* THPinViewController.bundle */; };
 		E222D1FD1902F00900DD1762 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E222D1FB1902F00900DD1762 /* Main.storyboard */; };
 		E25C5FBF192C993F0073E612 /* confidential@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E25C5FBE192C993F0073E612 /* confidential@2x.png */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B5D058F239FC18E00993E63 /* THPinViewControllerExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "THPinViewControllerExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		0B5D0590239FC18E00993E63 /* THLocalizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THLocalizeManager.swift; sourceTree = "<group>"; };
 		E2075FDF1A160CCB0018078F /* THPinViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = THPinViewController.bundle; sourceTree = "<group>"; };
 		E222D1FC1902F00900DD1762 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E25C5FBE192C993F0073E612 /* confidential@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "confidential@2x.png"; sourceTree = "<group>"; };
@@ -182,6 +185,7 @@
 		E26048D619027DBC006ACBC7 /* THPinViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0B5D0590239FC18E00993E63 /* THLocalizeManager.swift */,
 				E2742FC519043A27003EF85C /* THPinInputCirclesView.h */,
 				E2742FC619043A27003EF85C /* THPinInputCirclesView.m */,
 				E26048D919027DBC006ACBC7 /* THPinInputCircleView.h */,
@@ -197,6 +201,7 @@
 				E2075FDF1A160CCB0018078F /* THPinViewController.bundle */,
 				E25C5FC3192CBF010073E612 /* UIImage+ImageEffects.h */,
 				E25C5FC4192CBF010073E612 /* UIImage+ImageEffects.m */,
+				0B5D058F239FC18E00993E63 /* THPinViewControllerExample-Bridging-Header.h */,
 			);
 			path = THPinViewController;
 			sourceTree = "<group>";
@@ -249,6 +254,9 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Thomas Heß";
 				TargetAttributes = {
+					E260489D19027D01006ACBC7 = {
+						LastSwiftMigration = 1120;
+					};
 					E26048BE19027D01006ACBC7 = {
 						TestTargetID = E260489D19027D01006ACBC7;
 					};
@@ -259,6 +267,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				de,
 				fr,
@@ -307,6 +316,7 @@
 			files = (
 				E26048B819027D01006ACBC7 /* THViewController.m in Sources */,
 				E2742FC419043598003EF85C /* THPinNumPadView.m in Sources */,
+				0B5D0591239FC18F00993E63 /* THLocalizeManager.swift in Sources */,
 				E26048B219027D01006ACBC7 /* THAppDelegate.m in Sources */,
 				E2742FC719043A27003EF85C /* THPinInputCirclesView.m in Sources */,
 				E26048DE19027DBC006ACBC7 /* THPinInputCircleView.m in Sources */,
@@ -494,12 +504,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "THPinViewControllerExample/THPinViewControllerExample-Prefix.pch";
 				INFOPLIST_FILE = "THPinViewControllerExample/THPinViewControllerExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "name.thomashess.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "THPinViewController/THPinViewControllerExample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -509,12 +524,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "THPinViewControllerExample/THPinViewControllerExample-Prefix.pch";
 				INFOPLIST_FILE = "THPinViewControllerExample/THPinViewControllerExample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "name.thomashess.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "THPinViewController/THPinViewControllerExample-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -522,6 +541,7 @@
 		E26048D419027D01006ACBC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/THPinViewControllerExample.app/THPinViewControllerExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -545,6 +565,7 @@
 		E26048D519027D01006ACBC7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/THPinViewControllerExample.app/THPinViewControllerExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
