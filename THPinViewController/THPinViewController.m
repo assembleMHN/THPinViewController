@@ -88,6 +88,21 @@
     self.pinView.promptTitle = [[THLocalStringManager sharedInstance] promptTitle];
 }
 
+
+- (void)setCancelTitle:(NSString *)cancelTitle {
+    if ([[[THLocalStringManager sharedInstance]titleCancel] isEqualToString:cancelTitle]) {
+        return;
+    }
+    [[THLocalStringManager sharedInstance] setCancelTitle:[cancelTitle copy]];
+}
+
+- (void)setDeleteTitle:(NSString *)deleteTitle{
+    if ([[[THLocalStringManager sharedInstance]titleDelete] isEqualToString:deleteTitle]) {
+        return;
+    }
+    [[THLocalStringManager sharedInstance] setDeleteTitle:[deleteTitle copy]];
+}
+
 - (void)setPromptColor:(UIColor *)promptColor
 {
     if ([self.promptColor isEqual:promptColor]) {
