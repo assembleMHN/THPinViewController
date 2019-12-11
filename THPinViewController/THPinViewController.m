@@ -84,7 +84,7 @@
     if ([[[THLocalStringManager sharedInstance]promptTitle] isEqualToString:promptTitle]) {
         return;
     }
-    [[THLocalStringManager sharedInstance] setPromptTitle:[promptTitle copy]];
+    [[THLocalStringManager sharedInstance] setPromptTitle:promptTitle];
     self.pinView.promptTitle = [[THLocalStringManager sharedInstance] promptTitle];
 }
 
@@ -93,14 +93,14 @@
     if ([[[THLocalStringManager sharedInstance]titleCancel] isEqualToString:cancelTitle]) {
         return;
     }
-    [[THLocalStringManager sharedInstance] setCancelTitle:[cancelTitle copy]];
+    [[THLocalStringManager sharedInstance] setCancelTitle:cancelTitle];
 }
 
 - (void)setDeleteTitle:(NSString *)deleteTitle{
     if ([[[THLocalStringManager sharedInstance]titleDelete] isEqualToString:deleteTitle]) {
         return;
     }
-    [[THLocalStringManager sharedInstance] setDeleteTitle:[deleteTitle copy]];
+    [[THLocalStringManager sharedInstance] setDeleteTitle:deleteTitle];
 }
 
 - (void)setPromptColor:(UIColor *)promptColor
